@@ -1,0 +1,24 @@
+// Aktifkan suara setelah autoplay berhasil (opsional)
+  window.addEventListener('load', function() {
+    var audio = document.getElementById("song");
+    audio.muted = false;
+    audio.play();
+  });
+window.addEventListener('load', () => {
+    Swal.fire({
+        title: 'Do you want to play music in the background?',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes',
+        cancelButtonText: 'No',
+    }).then((result) => {
+        if (result.isConfirmed) {
+            document.querySelector('.song').play();
+            animationTimeline();
+        } else {
+            animationTimeline();
+        }
+    });
+});
